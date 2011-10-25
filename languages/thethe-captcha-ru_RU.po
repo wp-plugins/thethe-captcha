@@ -1,0 +1,419 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: TheThe Captcha\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-Country: RUSSIAN FEDERATION\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: \n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: inc/inc.sidebar.donate.php:4
+#: inc/inc.sidebar.help.php:3
+#: inc/inc.sidebar.newsletter.php:10
+#: inc/inc.sidebar.themes.php:4
+#: inc/inc.sidebar.thethe-help.php:3
+#@ default
+msgid "Click to toggle"
+msgstr "Кликните чтобы открыть"
+
+#: lib/class.captcha.php:307
+#: lib/class.captcha.php:320
+#: lib/class.captcha.php:333
+#@ thethe-captcha
+msgid "ERROR"
+msgstr "ОШИБКА"
+
+#: lib/class.captcha.php:320
+#: lib/class.captcha.php:333
+#@ thethe-captcha
+msgid "That CAPTCHA was incorrect. Make sure you have not disabled cookies."
+msgstr "Поле   CAPTCHA   заполнено  неверно.  Убедитесь  что  у  вас в браузере включена возможность приёма куки."
+
+#: lib/lib.plugin.php:155
+#@ thethe-captcha
+msgid "An error has occurred, which probably means the feed is down. Try again later."
+msgstr "Возникла  ошибка,  скорее  всего,  канал вещания не работает. Попробуйте позже."
+
+#: inc/view.settings-math.php:105
+#: inc/view.settings-symbol.php:109
+#@ thethe-captcha
+msgid "Example CAPTCHA"
+msgstr "Пример CAPTCHA"
+
+#: lib/class.captcha.php:93
+#: lib/class.captcha.php:294
+#@ thethe-captcha
+msgid "Result"
+msgstr "Результат"
+
+#: lib/class.captcha.php:70
+#: lib/class.captcha.php:269
+#@ thethe-captcha
+msgid "CAPTCHA Code"
+msgstr "CAPTCHA код"
+
+#: inc/inc.submit-buttons.php:3
+#@ thethe-captcha
+msgid "Update Settings"
+msgstr "Сохранить настройки"
+
+#: inc/inc.submit-buttons.php:4
+#@ thethe-captcha
+msgid "Reset To Defaults"
+msgstr "Восстановить первоначальные настройки"
+
+#: lib/lib.plugin.php:150
+#@ thethe-captcha
+msgid "Unfortunately the news channel is temporarily closed"
+msgstr "К сожалению, канал новостей временно закрыт."
+
+#: inc/view.settings-math.php:6
+#@ thethe-captcha
+msgid "Mathematical CAPTCHA Settings"
+msgstr "Настройки математической CAPTCHA"
+
+#: inc/view.settings-math.php:19
+#@ thethe-captcha
+msgid "Text Color"
+msgstr "Цвет текста"
+
+#: inc/view.settings-math.php:24
+#: inc/view.settings-symbol.php:19
+#@ thethe-captcha
+msgid "Background Color"
+msgstr "Цвет фона"
+
+#: inc/view.settings-math.php:29
+#@ thethe-captcha
+msgid "Grid Color"
+msgstr "Цвет сетки"
+
+#: inc/view.settings-math.php:34
+#@ thethe-captcha
+msgid "CAPTCHA Width"
+msgstr "Ширина CAPTCHA"
+
+#: inc/view.settings-math.php:39
+#: inc/view.settings-symbol.php:39
+#@ thethe-captcha
+msgid "CAPTCHA Height"
+msgstr "Высота CAPTCHA"
+
+#: inc/view.settings-math.php:44
+#@ thethe-captcha
+msgid "Minimum Font Size"
+msgstr "Минимальный размер шрифта"
+
+#: inc/view.settings-math.php:49
+#@ thethe-captcha
+msgid "Maximum Font Size"
+msgstr "Максимальный размер шрифта"
+
+#: inc/view.settings-math.php:54
+#@ thethe-captcha
+msgid "Rotation Angle"
+msgstr "Угол вращения"
+
+#: inc/view.settings-math.php:59
+#@ thethe-captcha
+msgid "Background Grid Size"
+msgstr "Размер сетки фона"
+
+#: inc/view.settings-math.php:64
+#@ thethe-captcha
+msgid "Possible Math Operators"
+msgstr "Допустимые математические действия"
+
+#: inc/view.settings-math.php:76
+#@ thethe-captcha
+msgid "First Number, Range of Random Values (Keep it lower than Second Number)"
+msgstr "Первая  цифра,  диапазон  случайных  значений ( задавайте егоменьше Второй цифры"
+
+#: inc/view.settings-math.php:79
+#: inc/view.settings-math.php:85
+#@ thethe-captcha
+msgid "Range of Random Values from X to Y"
+msgstr "Диапазон случайных значений от X до Y"
+
+#: inc/view.settings-math.php:82
+#@ thethe-captcha
+msgid "Second Number Random Value"
+msgstr "Случайное значение второго номера"
+
+#: inc/view.settings-symbol.php:6
+#@ thethe-captcha
+msgid "Symbol CAPTCHA Settings"
+msgstr "Настройки символьной CAPTCHA"
+
+#: inc/view.settings-symbol.php:24
+#@ thethe-captcha
+msgid "Shadow Color"
+msgstr "Цвет тени"
+
+#: inc/view.settings-symbol.php:29
+#@ thethe-captcha
+msgid "Symbol Quantity"
+msgstr "Количество символов"
+
+#: inc/view.settings-symbol.php:34
+#@ thethe-captcha
+msgid "СAPTCHA Width"
+msgstr "Ширина картинки"
+
+#: inc/view.settings-symbol.php:44
+#@ thethe-captcha
+msgid "Symbol Minimum Height"
+msgstr "Минимальная высота символа"
+
+#: inc/view.settings-symbol.php:49
+#@ thethe-captcha
+msgid "Symbol Maximum Height"
+msgstr "Максимальная высота символа"
+
+#: inc/view.settings-symbol.php:54
+#@ thethe-captcha
+msgid "Maximum Symbol Left Slope"
+msgstr "Максимальный наклон символа влево"
+
+#: inc/view.settings-symbol.php:59
+#@ thethe-captcha
+msgid "Maximum Symbol Right Slope"
+msgstr "Максимальный наклон символа вправо"
+
+#: inc/view.settings-symbol.php:64
+#@ thethe-captcha
+msgid "Sadow Size"
+msgstr "Размер тени"
+
+#: inc/view.settings-symbol.php:69
+#@ thethe-captcha
+msgid "Symbol Vertical Alignment"
+msgstr "Выравнивание символа по-вертикали"
+
+#: inc/view.settings-symbol.php:74
+#@ thethe-captcha
+msgid "First Symbol Horizontal Position"
+msgstr "Позиция первого символа по-горизонтали"
+
+#: inc/view.settings-symbol.php:79
+#@ thethe-captcha
+msgid "Symbols Interval"
+msgstr "Интервал между началами символов"
+
+#: inc/view.settings-symbol.php:84
+#@ thethe-captcha
+msgid "Symbols Set"
+msgstr "Набор символов"
+
+#: inc/view.settings-symbol.php:89
+#@ thethe-captcha
+msgid "Noise Level"
+msgstr "Уровень шума"
+
+#: lib/class.captcha.php:226
+#: lib/class.captcha.php:239
+#@ thethe-captcha
+msgid "Error: You have entered a wrong CAPTCHA phrase. Press your browser's back button and try again."
+msgstr "Ошибка: Вы ввели неверную CAPTCHA фразу. Нажмите кнопку Назад вашего браузера, введите фразу и отправьте форму ещё раз."
+
+#: lib/class.captcha.php:307
+#@ thethe-captcha
+msgid "Please Complete the CAPTCHA."
+msgstr "Пожалуйста заполните CAPTCHA."
+
+#: lib/class.captcha.php:213
+#@ thethe-captcha
+msgid "Error: You have not entered a CAPTCHA phrase. Press your browser's back button and try again."
+msgstr "Ошибка: Вы ввели неверную CAPTCHA фразу. Нажмите кнопку Назад вашего браузера, введите фразу и отправьте форму ещё раз."
+
+#: inc/view.overview.php:9
+#@ thethe-captcha
+msgid "TheThe CAPTCHA WordPress plugin is an anti comment and user registration form spam plugin which generates and verifies CAPTCHA tests that most human commenters but not current spambots can easily pass."
+msgstr "TheThe CAPTCHA WordPress плагин защищает от СПАМ-а формы комментариев и регистрации пользователей путём генерции CAPTCHA тестов, которые может пройти большинство людей, но не СПАМ роботы.."
+
+#: inc/view.overview.php:11
+#@ thethe-captcha
+msgid "With TheThe CAPTCHA plugin you can choose to use either a graphic symbol-based protection or a simple mathematical one."
+msgstr "При использовании TheThe CAPTCHA плагина вы можете использовать как CAPTCHA тест базирующийся на генерации символов, так и тест связанный с ответами на простые математические вопросы."
+
+#: inc/view.overview.php:13
+#@ thethe-captcha
+msgid "Unlike the most of similar plugins, this plugin is highly customizable! You can choose which symbols, colors, mathematical operations to use... So, the look of our CAPTCHA will not ruin the look of your well designed website but protect you from tons of comments that are just spam."
+msgstr "В отличие от других плагинов такого рода, этот плагин очень легко настраиваем! Вы можете выбрать какие символы, цвета, математические действия использовать. Таким образом, внешний вид нашего кода CAPTCHA не испортит дизайн ваших страниц и при этом защитит вас от горы ненужных СПАМ комментариев."
+
+#: inc/view.settings-math.php:9
+#: inc/view.settings-symbol.php:9
+#@ thethe-captcha
+msgid "Enable on Comments Form"
+msgstr "Активировать на формах комментариев"
+
+#: lib/lib.plugin.php:246
+#@ default
+msgid "Settings"
+msgstr ""
+
+#: lib/lib.plugin.php:247
+#@ default
+msgid "Support"
+msgstr ""
+
+#: lib/lib.plugin.php:248
+#@ default
+msgid "Themes"
+msgstr ""
+
+#: lib/lib.plugin.php:249
+#@ default
+msgid "Tips & Tricks"
+msgstr ""
+
+#: lib/lib.plugin.php:250
+#@ default
+msgid "Donate"
+msgstr ""
+
+#: inc/view.settings-math.php:14
+#: inc/view.settings-symbol.php:14
+#@ thethe-captcha
+msgid "Enable on Registration Form"
+msgstr "Активировать на регистрационной форме"
+
+#: inc/view.settings-math.php:11
+#: inc/view.settings-symbol.php:11
+#@ thethe-captcha
+msgid "Check this box to add the CAPTCHA to your comment forms"
+msgstr "Активируйте этот чекбокс для добавления CAPTCHA на форму комментариев"
+
+#: inc/view.settings-math.php:16
+#: inc/view.settings-symbol.php:16
+#@ thethe-captcha
+msgid "Check this box to add the CAPTCHA to your user registration form"
+msgstr "Активируйте этот чекбокс для добавления CAPTCHA на форму регистрации новых пользователей"
+
+#: inc/view.settings-math.php:21
+#@ thethe-captcha
+msgid "Choose the color for generating digits"
+msgstr "Выберите цвет цифр"
+
+#: inc/view.settings-math.php:26
+#: inc/view.settings-symbol.php:21
+#@ thethe-captcha
+msgid "Choose a color for your CAPTCHA box background"
+msgstr "Выберите цвет фона для CAPTCHA"
+
+#: inc/view.settings-math.php:31
+#@ thethe-captcha
+msgid "Choose the color for your background cells"
+msgstr "Выберите цвет сетки"
+
+#: inc/view.settings-math.php:36
+#: inc/view.settings-symbol.php:36
+#@ thethe-captcha
+msgid "Specify the CAPTCHA box width in pixels"
+msgstr "Ширина СAPTCHA блока в пикселах"
+
+#: inc/view.settings-math.php:41
+#: inc/view.settings-symbol.php:41
+#@ thethe-captcha
+msgid "Specify the CAPTCHA box height in pixels"
+msgstr "Высота СAPTCHA блока в пикселах"
+
+#: inc/view.settings-math.php:46
+#@ thethe-captcha
+msgid "Specify the minimal font size for generating digits"
+msgstr "Укажите минимальный размер шрифта для генерируемых цифр"
+
+#: inc/view.settings-math.php:51
+#@ thethe-captcha
+msgid "Specify the maximal font size for generating digits"
+msgstr "Укажите максимальный размер шрифта для генерируемых цифр"
+
+#: inc/view.settings-math.php:56
+#@ thethe-captcha
+msgid "Specify the maximal slop of the generating digits"
+msgstr "Укажите угол поворота цифр"
+
+#: inc/view.settings-math.php:61
+#@ thethe-captcha
+msgid "Specify cell size of your generating background grid"
+msgstr "Укажите размер фона сетки"
+
+#: inc/view.settings-math.php:72
+#@ thethe-captcha
+msgid "Choose mathematical operations to use"
+msgstr "Выберите необходимые математические операции"
+
+#: inc/view.settings-symbol.php:26
+#@ thethe-captcha
+msgid "Choose a color for your CAPTCHA symbol shadow"
+msgstr "Выберите цвет тени символов"
+
+#: inc/view.settings-symbol.php:31
+#@ thethe-captcha
+msgid "Specify the number of symbols to use on your CAPTCHA"
+msgstr "Укажите количество символов для CAPTCHA"
+
+#: inc/view.settings-symbol.php:46
+#@ thethe-captcha
+msgid "Specify the minumal height of the generating CAPTCHA symbols"
+msgstr "Укажите минимальную высоту генерируемых символов"
+
+#: inc/view.settings-symbol.php:51
+#@ thethe-captcha
+msgid "Specify the maximum height of the generating CAPTCHA symbols"
+msgstr "Укажите максимальную высоту генерируемых символов"
+
+#: inc/view.settings-symbol.php:61
+#@ thethe-captcha
+msgid "Specify the maximal slop of the generating symbols to the right"
+msgstr "Укажите максимальный наклон генерируемого символа вправо"
+
+#: inc/view.settings-symbol.php:66
+#@ thethe-captcha
+msgid "Specify the symbol shadow size in pixels"
+msgstr "Укажите размер тени символов"
+
+#: inc/view.settings-symbol.php:71
+#@ thethe-captcha
+msgid "Specify the vertical alignment of the symbols"
+msgstr "Выравнивание символа по-вертикали"
+
+#: inc/view.settings-symbol.php:76
+#@ thethe-captcha
+msgid "Specify the horizontal position of the first symbol"
+msgstr "Позиция первого символа по-горизонтали"
+
+#: inc/view.settings-symbol.php:81
+#@ thethe-captcha
+msgid "Specify the interval between begininings of the symbols"
+msgstr "Интервал между началами символов"
+
+#: inc/view.settings-symbol.php:86
+#@ thethe-captcha
+msgid "Enter the set of symbols to randomly use on CAPTCHA generation"
+msgstr "Введите желаемый набор символов"
+
+#: inc/view.settings-symbol.php:91
+#@ thethe-captcha
+msgid ""
+"Specify in % the graphic noise level. The more noise level the\n"
+"harder to recognize a symbol"
+msgstr "Укажите уровень шума (помехи)"
+
+#: inc/view.settings-symbol.php:56
+#@ thethe-captcha
+msgid "Specify the maximal slop of the generating symbols to the left"
+msgstr "Укажите максимальный наклон генерируемого символа влево"
+
