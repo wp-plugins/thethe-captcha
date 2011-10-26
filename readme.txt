@@ -6,13 +6,13 @@ Requires at least: 3.0
 Tested up to: 3.2.1
 Stable tag: 1.0.0
 
-TheThe CAPTCHA WP plugin provides you with powerful anti comment and user registration form spam plugin.
+TheThe CAPTCHA is a WP plugin that blocks spam from comment boards and registration forms by generating simple tests that only humans can easily pass.
 
 == Description ==
 
-[TheThe CAPTCHA](http://thethefly.com/wp-plugins/thethe-captcha/ "TheThe CAPTCHA") WordPress plugin is an anti comment and user registration form spam plugin which generates and verifies CAPTCHA tests that most human commenters but not current spambots can easily pass.
+[TheThe CAPTCHA](http://thethefly.com/wp-plugins/thethe-captcha/ "TheThe CAPTCHA") uses two easily understood types of tests (generated graphics and simple math logic) to block both registration form spam and comment spam.
 
-[Read more &raquo;](http://thethefly.com/wp-plugins/thethe-captcha/ "TheThe CAPTCHA")
+Choose from a number of colors, sizes, and symbols to customize TheThe CAPTCHA for your website. WP MU is fully supported.
 
 This plugin is povided for FREE by [WordPress Themes Club TheTheFly.Com](http://TheTheFly.Com "TheTheFly.com - Premium WordPress Themes Club").
 
