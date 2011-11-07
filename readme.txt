@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: antispam, captcha, registration, comment, comments, spam, text captcha, multilingual, security
 Requires at least: 3.0
 Tested up to: 3.2.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 TheThe CAPTCHA is a WP plugin that blocks spam from comment boards and registration forms by generating simple tests that only humans can easily pass.
 
@@ -44,8 +44,8 @@ This plugin is povided for FREE by [WordPress Themes Club TheTheFly.Com](http://
 
 == Changelog ==
 
-= 1.0 =
-* No changes yet...
+= 1.0.1 =
+* WP Network compatibility added.
 
 This plugin is povided for FREE by [WordPress Themes Club TheTheFly.Com](http://TheTheFly.Com "TheTheFly.com - Premium WordPress Themes Club").
 

@@ -4,7 +4,7 @@ Plugin Name: TheThe CAPTCHA
 Plugin URI: http://thethefly.com/wp-plugins/thethe-captcha/
 Description: TheThe Fly CAPTCHA
 
-Version: 1.0.0
+Version: 1.0.1
 Author: TheThe Fly
 Author URI: http://www.thethefly.com
 */
@@ -29,7 +29,7 @@ $TheTheCaptcha = array(
 	'wp_plugin_dir_url' => WP_PLUGIN_URL.'/'.str_replace(basename( __FILE__),"",plugin_basename(__FILE__)),	
 	'wp_plugin_base_name' => plugin_basename(__FILE__),
 	'wp_plugin_name' => 'TheThe CAPTCHA',
-	'wp_plugin_version' => '1.0.0'
+	'wp_plugin_version' => '1.0.1'
 );
 /**
  * Current plugin config

@@ -24,6 +24,7 @@ class PluginCaptcha_Abstract
 	 */
 	public function init()
 	{
+		global $wp_version;
 		$hook = $this->_config['plugin-hook'];
 		register_activation_hook($hook, array($this,'_hook_activate'));
 		register_deactivation_hook($hook, array($this,'_hook_deactivate'));
@@ -32,6 +33,7 @@ class PluginCaptcha_Abstract
 		add_filter( 'query_vars', array($this,'_hook_query_vars'));
 		add_filter( 'rewrite_rules_array', array($this,'_hook_rewrite_rules_array'));
 		add_filter( 'wp_print_styles', array($this,'_hook_wp_print_style'));
+		add_filter( 'wp_enqueue_scripts', array($this,'_hook_wp_enqueue_scripts'));
 		add_filter( 'widgets_init', array($this,'_hook_widgets_init'));
 		add_filter( 'save_post', array($this,'_hook_save_post'));
 		add_filter( 'contextual_help', array($this,'_hook_contextual_help'),10,3);
@@ -46,9 +48,17 @@ class PluginCaptcha_Abstract
 		}
 		$config_s = $this->config('default-s');
 		$config_m = $this->config('default-m');
+		
+		
+		// for WP 3.0+
 		if ($config_m['math_comment']!="" || $config_s['w3_comment']!="") {
-			add_action('comment_form_after_fields', array($this, 'thethe_captcha_comment_form'), 1);
-			add_action('comment_form_logged_in_after', array($this, 'thethe_captcha_comment_form'), 1);
+			if( version_compare($wp_version,'3','>=')) { // wp 3.0 +
+				// SFC Comment plugin was removing the captcha when logged into facebook
+				add_action( 'comment_form_after_fields', array($this, 'thethe_captcha_comment_form_wp3'), 1);
+				add_action( 'comment_form_logged_in_after', array($this, 'thethe_captcha_comment_form_wp3'), 1);
+			 }
+			 // for WP before WP 3.0
+			add_action('comment_form', array($this, 'thethe_captcha_comment_form'), 1);
 			add_filter('preprocess_comment', array($this, 'thethe_captcha_comment_post'), 1);
 		}
 		if ($config_m['math_reg']!="" || $config_s['w3_reg']!="") {
@@ -342,6 +352,7 @@ class PluginCaptcha_Abstract
 	public function _hook_init() {}
 	public function _hook_wp_loaded() {}
 	public function _hook_wp_print_style(){}
+	public function _hook_wp_enqueue_scripts(){}
 	public function _hook_widgets_init() {}
 	public function _hook_query_vars($args) { return $args; }
 	public function _hook_rewrite_rules_array($rules) { return $rules; }
@@ -350,6 +361,7 @@ class PluginCaptcha_Abstract
 	public function _hook_admin_init() {}
 	public function _hook_deactivate() {}
 	public function thethe_captcha_comment_form() {}
+	public function thethe_captcha_comment_form_wp3() {}
 	public function thethe_captcha_comment_post() {}
 	public function thethe_captcha_register_form() {}
 	public function thethe_captcha_register_post($errors) {}

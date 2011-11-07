@@ -38,7 +38,12 @@ class PluginCaptcha extends PluginCaptcha_Abstract
 		wp_enqueue_style('thethe-captcha');
 	}
 	
-	public function thethe_captcha_comment_form() {
+	public function _hook_wp_enqueue_scripts()
+	{
+		wp_enqueue_script('jquery');
+	}
+	
+	public function thethe_captcha_comment_form_wp3() {
   
 	 if (is_user_logged_in()) {
        if ( current_user_can(10)) {
@@ -53,22 +58,24 @@ class PluginCaptcha extends PluginCaptcha_Abstract
 		$config = $this->config('default-s');
 		$w3_backg = substr($config['w3_backg'], 1);
 		$w3_shadow = substr($config['w3_shadow'], 1);
-echo '
-<script type=\'text/javascript\'>
-jQuery(document).ready(function($) {
-	$("#reload_captcha").click(function() {
-	document.images["thethe_captcha"].src="'.WP_PLUGIN_URL.'/thethe-captcha/lib/w3captcha.php?w3_count='.$config['w3_count'].'&w3_width='.$config['w3_width'].'&w3_height='.$config['w3_height'].'&w3_font_size_min='.$config['w3_font_size_min'].'&w3_font_size_max='.$config['w3_font_size_max'].'&w3_char_angle_min='.$config['w3_char_angle_min'].'&w3_char_angle_max='.$config['w3_char_angle_max'].'&w3_char_angle_shadow='.$config['w3_char_angle_shadow'].'&w3_char_align='.$config['w3_char_align'].'&w3_start='.$config['w3_start'].'&w3_interval='.$config['w3_interval'].'&w3_chars='.$config['w3_chars'].'&w3_noise='.$config['w3_noise'].'&w3_backg='.$w3_backg.'&w3_shadow='.$w3_shadow.'&rand="+ Math.round(Math.random (0) * 1000);
+	echo '
+	<script type=\'text/javascript\'>
+	jQuery(document).ready(function($) {
+		$("#reload_captcha").click(function() {
+		str="'.WP_PLUGIN_URL.'/thethe-captcha/lib/w3captcha.php?w3_count='.$config['w3_count'].'&amp;w3_width='.$config['w3_width'].'&amp;w3_height='.$config['w3_height'].'&amp;w3_font_size_min='.$config['w3_font_size_min'].'&amp;w3_font_size_max='.$config['w3_font_size_max'].'&amp;w3_char_angle_min='.$config['w3_char_angle_min'].'&amp;w3_char_angle_max='.$config['w3_char_angle_max'].'&amp;w3_char_angle_shadow='.$config['w3_char_angle_shadow'].'&amp;w3_char_align='.$config['w3_char_align'].'&amp;w3_start='.$config['w3_start'].'&amp;w3_interval='.$config['w3_interval'].'&amp;w3_chars='.$config['w3_chars'].'&amp;w3_noise='.$config['w3_noise'].'&amp;w3_backg='.$w3_backg.'&amp;w3_shadow='.$w3_shadow.'&amp;rand="+ Math.round(Math.random (0) * 1000);
+		str=str.replace(/&amp;/g,"&");
+		document.images["thethe_captcha"].src=str;
+		}) 
 	}) 
-}) 
-</script>
-';
-	echo '<img src="'.WP_PLUGIN_URL.'/thethe-captcha/lib/w3captcha.php?w3_count='.$config['w3_count'].'&w3_width='.$config['w3_width'].'&w3_height='.$config['w3_height'].'&w3_font_size_min='.$config['w3_font_size_min'].'&w3_font_size_max='.$config['w3_font_size_max'].'&w3_char_angle_min='.$config['w3_char_angle_min'].'&w3_char_angle_max='.$config['w3_char_angle_max'].'&w3_char_angle_shadow='.$config['w3_char_angle_shadow'].'&w3_char_align='.$config['w3_char_align'].'&w3_start='.$config['w3_start'].'&w3_interval='.$config['w3_interval'].'&w3_chars='.$config['w3_chars'].'&w3_noise='.$config['w3_noise'].'&w3_backg='.$w3_backg.'&w3_shadow='.$w3_shadow.'" alt="Captcha" id="thethe_captcha" />
+	</script>
+	';
+	echo '<img src="'.WP_PLUGIN_URL.'/thethe-captcha/lib/w3captcha.php?w3_count='.$config['w3_count'].'&amp;w3_width='.$config['w3_width'].'&amp;w3_height='.$config['w3_height'].'&amp;w3_font_size_min='.$config['w3_font_size_min'].'&amp;w3_font_size_max='.$config['w3_font_size_max'].'&amp;w3_char_angle_min='.$config['w3_char_angle_min'].'&amp;w3_char_angle_max='.$config['w3_char_angle_max'].'&amp;w3_char_angle_shadow='.$config['w3_char_angle_shadow'].'&amp;w3_char_align='.$config['w3_char_align'].'&amp;w3_start='.$config['w3_start'].'&amp;w3_interval='.$config['w3_interval'].'&amp;w3_chars='.$config['w3_chars'].'&amp;w3_noise='.$config['w3_noise'].'&amp;w3_backg='.$w3_backg.'&amp;w3_shadow='.$w3_shadow.'" alt="Captcha" id="thethe_captcha" />
 	<img src="'.WP_PLUGIN_URL.'/thethe-captcha/style/images/reload.gif" id="reload_captcha" alt="Captcha Reload" title="Captcha Reload"/>
 	<br />
 	';
 	echo '
 	<label for="captcha_input">'.__("CAPTCHA Code","thethe-captcha").'</label>
-	<input type="text" name="captcha_input" />
+	<input type="text" name="captcha_input"  id="captcha_input"/>
 	';	
 }
 elseif ($config_m['math_comment']=="on" || $config_m['math_comment']==1)
@@ -81,21 +88,102 @@ elseif ($config_m['math_comment']=="on" || $config_m['math_comment']==1)
 <script type=\'text/javascript\'>
 jQuery(document).ready(function($) {
 	$("#reload_captcha").click(function() {
-	document.images["thethe_captcha"].src="'.WP_PLUGIN_URL.'/thethe-captcha/lib/math_captcha.php?math_captcha_w='.$config['math_captcha_w'].'&math_captcha_h='.$config['math_captcha_h'].'&math_min_font_size='.$config['math_min_font_size'].'&math_max_font_size='.$config['math_max_font_size'].'&math_angle='.$config['math_angle'].'&math_bg_size='.$config['math_bg_size'].'&math_operators_mu='.$config['math_operators_mu'].'&math_operators_sub='.$config['math_operators_sub'].'&math_operators_plus='.$config['math_operators_plus'].'&math_operators_di='.$config['math_operators_di'].'&math_first_num_1='.$config['math_first_num_1'].'&math_first_num_2='.$config['math_first_num_2'].'&math_second_num_1='.$config['math_second_num_1'].'&math_second_num_2='.$config['math_second_num_2'].'&math_backg='.$math_backg.'&math_text='.$math_text.'&math_grid='.$math_grid.'&rand="+ Math.round(Math.random (0) * 1000);
+	str="'.WP_PLUGIN_URL.'/thethe-captcha/lib/math_captcha.php?math_captcha_w='.$config['math_captcha_w'].'&amp;math_captcha_h='.$config['math_captcha_h'].'&amp;math_min_font_size='.$config['math_min_font_size'].'&amp;math_max_font_size='.$config['math_max_font_size'].'&amp;math_angle='.$config['math_angle'].'&amp;math_bg_size='.$config['math_bg_size'].'&amp;math_operators_mu='.$config['math_operators_mu'].'&amp;math_operators_sub='.$config['math_operators_sub'].'&amp;math_operators_plus='.$config['math_operators_plus'].'&amp;math_operators_di='.$config['math_operators_di'].'&amp;math_first_num_1='.$config['math_first_num_1'].'&amp;math_first_num_2='.$config['math_first_num_2'].'&amp;math_second_num_1='.$config['math_second_num_1'].'&amp;math_second_num_2='.$config['math_second_num_2'].'&amp;math_backg='.$math_backg.'&amp;math_text='.$math_text.'&amp;math_grid='.$math_grid.'&amp;rand="+ Math.round(Math.random (0) * 1000);
+	str=str.replace(/&amp;/g,"&");
+	document.images["thethe_captcha"].src=str;
 	}) 
 }) 
 </script>
 ';
-	echo '<img src="'.WP_PLUGIN_URL.'/thethe-captcha/lib/math_captcha.php?math_captcha_w='.$config['math_captcha_w'].'&math_captcha_h='.$config['math_captcha_h'].'&math_min_font_size='.$config['math_min_font_size'].'&math_max_font_size='.$config['math_max_font_size'].'&math_angle='.$config['math_angle'].'&math_bg_size='.$config['math_bg_size'].'&math_operators_mu='.$config['math_operators_mu'].'&math_operators_sub='.$config['math_operators_sub'].'&math_operators_plus='.$config['math_operators_plus'].'&math_operators_di='.$config['math_operators_di'].'&math_first_num_1='.$config['math_first_num_1'].'&math_first_num_2='.$config['math_first_num_2'].'&math_second_num_1='.$config['math_second_num_1'].'&math_second_num_2='.$config['math_second_num_2'].'&math_backg='.$math_backg.'&math_text='.$math_text.'&math_grid='.$math_grid.'" alt="Captcha" id="thethe_captcha" />
+	echo '<img src="'.WP_PLUGIN_URL.'/thethe-captcha/lib/math_captcha.php?math_captcha_w='.$config['math_captcha_w'].'&amp;math_captcha_h='.$config['math_captcha_h'].'&amp;math_min_font_size='.$config['math_min_font_size'].'&amp;math_max_font_size='.$config['math_max_font_size'].'&amp;math_angle='.$config['math_angle'].'&amp;math_bg_size='.$config['math_bg_size'].'&amp;math_operators_mu='.$config['math_operators_mu'].'&amp;math_operators_sub='.$config['math_operators_sub'].'&amp;math_operators_plus='.$config['math_operators_plus'].'&amp;math_operators_di='.$config['math_operators_di'].'&amp;math_first_num_1='.$config['math_first_num_1'].'&amp;math_first_num_2='.$config['math_first_num_2'].'&amp;math_second_num_1='.$config['math_second_num_1'].'&amp;math_second_num_2='.$config['math_second_num_2'].'&amp;math_backg='.$math_backg.'&amp;math_text='.$math_text.'&amp;math_grid='.$math_grid.'" alt="Captcha" id="thethe_captcha" />
 	<img src="'.WP_PLUGIN_URL.'/thethe-captcha/style/images/reload.gif" id="reload_captcha" alt="Captcha Reload" title="Captcha Reload"/>
 	<br />
 	';
 	echo '<label for="captcha_input">'.__("Result","thethe-captcha").'</label>
-	<input type="text" name="captcha_input" />
-	</p>';
+	<input type="text" name="captcha_input" id="captcha_input" />
+	';
 }
+	echo '</p>';
+	// prevent double captcha fields
+    remove_action('comment_form', array($this, 'thethe_captcha_comment_form'), 1);
+	
 	return true;
-} // end function thethe_captcha_comment_form
+} // end function thethe_captcha_comment_form_wp3
+
+// this function adds the captcha to the comment form
+function thethe_captcha_comment_form() {
+	 if (is_user_logged_in()) {
+       if ( current_user_can(10)) {
+               return true;
+       }
+    }
+	echo '<p class="comment-form-captcha" id="thethe_captcha_div">';
+	$config_m = $this->config('default-m');
+	$config_s = $this->config('default-s');
+	if ($config_s['w3_comment']=="on" || $config_s['w3_comment']==1)
+	{
+		$config = $this->config('default-s');
+		$w3_backg = substr($config['w3_backg'], 1);
+		$w3_shadow = substr($config['w3_shadow'], 1);
+		
+echo '
+<script type=\'text/javascript\'>
+jQuery(document).ready(function($) {
+	$("#reload_captcha").click(function() {
+	str="'.WP_PLUGIN_URL.'/thethe-captcha/lib/w3captcha.php?w3_count='.$config['w3_count'].'&amp;w3_width='.$config['w3_width'].'&amp;w3_height='.$config['w3_height'].'&amp;w3_font_size_min='.$config['w3_font_size_min'].'&amp;w3_font_size_max='.$config['w3_font_size_max'].'&amp;w3_char_angle_min='.$config['w3_char_angle_min'].'&amp;w3_char_angle_max='.$config['w3_char_angle_max'].'&amp;w3_char_angle_shadow='.$config['w3_char_angle_shadow'].'&amp;w3_char_align='.$config['w3_char_align'].'&amp;w3_start='.$config['w3_start'].'&amp;w3_interval='.$config['w3_interval'].'&amp;w3_chars='.$config['w3_chars'].'&amp;w3_noise='.$config['w3_noise'].'&amp;w3_backg='.$w3_backg.'&amp;w3_shadow='.$w3_shadow.'&amp;rand="+ Math.round(Math.random (0) * 1000);
+	str=str.replace(/&amp;/g,"&");
+	document.images["thethe_captcha"].src=str;
+	}) 
+}) 
+</script>
+';
+
+	echo '<img src="'.WP_PLUGIN_URL.'/thethe-captcha/lib/w3captcha.php?w3_count='.$config['w3_count'].'&amp;w3_width='.$config['w3_width'].'&amp;w3_height='.$config['w3_height'].'&amp;w3_font_size_min='.$config['w3_font_size_min'].'&amp;w3_font_size_max='.$config['w3_font_size_max'].'&amp;w3_char_angle_min='.$config['w3_char_angle_min'].'&amp;w3_char_angle_max='.$config['w3_char_angle_max'].'&amp;w3_char_angle_shadow='.$config['w3_char_angle_shadow'].'&amp;w3_char_align='.$config['w3_char_align'].'&amp;w3_start='.$config['w3_start'].'&amp;w3_interval='.$config['w3_interval'].'&amp;w3_chars='.$config['w3_chars'].'&amp;w3_noise='.$config['w3_noise'].'&amp;w3_backg='.$w3_backg.'&amp;w3_shadow='.$w3_shadow.'" alt="Captcha" id="thethe_captcha" />
+	<img src="'.WP_PLUGIN_URL.'/thethe-captcha/style/images/reload.gif" id="reload_captcha" alt="Captcha Reload" title="Captcha Reload"/>
+	<br />
+	';
+	echo '
+	<label for="captcha_input">'.__("CAPTCHA Code","thethe-captcha").'</label>
+	<input type="text" name="captcha_input" id="captcha_input" />
+	';	
+}
+elseif ($config_m['math_comment']=="on" || $config_m['math_comment']==1)
+{
+	$config = $this->config('default-m');
+	$math_backg = substr($config['math_backg'], 1);
+	$math_text = substr($config['math_text'], 1);
+	$math_grid = substr($config['math_grid'], 1);
+	echo '
+<script type=\'text/javascript\'>
+jQuery(document).ready(function($) {
+	$("#reload_captcha").click(function() {
+	str="'.WP_PLUGIN_URL.'/thethe-captcha/lib/math_captcha.php?math_captcha_w='.$config['math_captcha_w'].'&amp;math_captcha_h='.$config['math_captcha_h'].'&amp;math_min_font_size='.$config['math_min_font_size'].'&amp;math_max_font_size='.$config['math_max_font_size'].'&amp;math_angle='.$config['math_angle'].'&amp;math_bg_size='.$config['math_bg_size'].'&amp;math_operators_mu='.$config['math_operators_mu'].'&amp;math_operators_sub='.$config['math_operators_sub'].'&amp;math_operators_plus='.$config['math_operators_plus'].'&amp;math_operators_di='.$config['math_operators_di'].'&amp;math_first_num_1='.$config['math_first_num_1'].'&amp;math_first_num_2='.$config['math_first_num_2'].'&amp;math_second_num_1='.$config['math_second_num_1'].'&amp;math_second_num_2='.$config['math_second_num_2'].'&amp;math_backg='.$math_backg.'&amp;math_text='.$math_text.'&amp;math_grid='.$math_grid.'&amp;rand="+ Math.round(Math.random (0) * 1000);
+	str=str.replace(/&amp;/g,"&");
+	document.images["thethe_captcha"].src=str;
+	}) 
+}) 
+</script>
+';
+	echo '<img src="'.WP_PLUGIN_URL.'/thethe-captcha/lib/math_captcha.php?math_captcha_w='.$config['math_captcha_w'].'&amp;math_captcha_h='.$config['math_captcha_h'].'&amp;math_min_font_size='.$config['math_min_font_size'].'&amp;math_max_font_size='.$config['math_max_font_size'].'&amp;math_angle='.$config['math_angle'].'&amp;math_bg_size='.$config['math_bg_size'].'&amp;math_operators_mu='.$config['math_operators_mu'].'&amp;math_operators_sub='.$config['math_operators_sub'].'&amp;math_operators_plus='.$config['math_operators_plus'].'&amp;math_operators_di='.$config['math_operators_di'].'&amp;math_first_num_1='.$config['math_first_num_1'].'&amp;math_first_num_2='.$config['math_first_num_2'].'&amp;math_second_num_1='.$config['math_second_num_1'].'&amp;math_second_num_2='.$config['math_second_num_2'].'&amp;math_backg='.$math_backg.'&amp;math_text='.$math_text.'&amp;math_grid='.$math_grid.'" alt="Captcha" id="thethe_captcha" />
+	<img src="'.WP_PLUGIN_URL.'/thethe-captcha/style/images/reload.gif" id="reload_captcha" alt="Captcha Reload" title="Captcha Reload"/>
+	<br />
+	';
+	echo '<label for="captcha_input">'.__("Result","thethe-captcha").'</label>
+	<input type="text" name="captcha_input" id="captcha_input" />';
+}
+	echo '</p>';
+    echo '
+		<script type=\'text/javascript\'>
+		  var sUrlInput = document.getElementById("comment");
+				  var oParent = sUrlInput.parentNode;
+		  var sSubstitue = document.getElementById("thethe_captcha_div");
+				  oParent.appendChild(sSubstitue, sUrlInput);
+		</script>
+	';
+
+	return true;
+} // end function thethe_captcha_comment_form  2.0
+
 	
 	public function _SettingsSymbolView()
 	{   
@@ -256,7 +344,9 @@ echo '<p>
 <script type=\'text/javascript\'>
 jQuery(document).ready(function($) {
 	$("#reload_captcha").click(function() {
-	document.images["thethe_captcha"].src="'.WP_PLUGIN_URL.'/thethe-captcha/lib/w3captcha.php?w3_count='.$config['w3_count'].'&w3_width='.$config['w3_width'].'&w3_height='.$config['w3_height'].'&w3_font_size_min='.$config['w3_font_size_min'].'&w3_font_size_max='.$config['w3_font_size_max'].'&w3_char_angle_min='.$config['w3_char_angle_min'].'&w3_char_angle_max='.$config['w3_char_angle_max'].'&w3_char_angle_shadow='.$config['w3_char_angle_shadow'].'&w3_char_align='.$config['w3_char_align'].'&w3_start='.$config['w3_start'].'&w3_interval='.$config['w3_interval'].'&w3_chars='.$config['w3_chars'].'&w3_noise='.$config['w3_noise'].'&w3_backg='.$w3_backg.'&w3_shadow='.$w3_shadow.'&rand="+ Math.round(Math.random (0) * 1000);
+	str="'.WP_PLUGIN_URL.'/thethe-captcha/lib/w3captcha.php?w3_count='.$config['w3_count'].'&w3_width='.$config['w3_width'].'&w3_height='.$config['w3_height'].'&w3_font_size_min='.$config['w3_font_size_min'].'&w3_font_size_max='.$config['w3_font_size_max'].'&w3_char_angle_min='.$config['w3_char_angle_min'].'&w3_char_angle_max='.$config['w3_char_angle_max'].'&w3_char_angle_shadow='.$config['w3_char_angle_shadow'].'&w3_char_align='.$config['w3_char_align'].'&w3_start='.$config['w3_start'].'&w3_interval='.$config['w3_interval'].'&w3_chars='.$config['w3_chars'].'&w3_noise='.$config['w3_noise'].'&w3_backg='.$w3_backg.'&w3_shadow='.$w3_shadow.'&rand="+ Math.round(Math.random (0) * 1000);
+	str=str.replace(/&amp;/g,"&");
+	document.images["thethe_captcha"].src=str;
 	}) 
 }) 
 </script>
@@ -281,7 +371,9 @@ elseif ($config_m['math_reg']=="on" || $config_m['math_reg']==1)
 <script type=\'text/javascript\'>
 jQuery(document).ready(function($) {
 	$("#reload_captcha").click(function() {
-	document.images["thethe_captcha"].src="'.WP_PLUGIN_URL.'/thethe-captcha/lib/math_captcha.php?math_captcha_w='.$config['math_captcha_w'].'&math_captcha_h='.$config['math_captcha_h'].'&math_min_font_size='.$config['math_min_font_size'].'&math_max_font_size='.$config['math_max_font_size'].'&math_angle='.$config['math_angle'].'&math_bg_size='.$config['math_bg_size'].'&math_operators_mu='.$config['math_operators_mu'].'&math_operators_sub='.$config['math_operators_sub'].'&math_operators_plus='.$config['math_operators_plus'].'&math_operators_di='.$config['math_operators_di'].'&math_first_num_1='.$config['math_first_num_1'].'&math_first_num_2='.$config['math_first_num_2'].'&math_second_num_1='.$config['math_second_num_1'].'&math_second_num_2='.$config['math_second_num_2'].'&math_backg='.$math_backg.'&math_text='.$math_text.'&math_grid='.$math_grid.'&rand="+ Math.round(Math.random (0) * 1000);
+	str="'.WP_PLUGIN_URL.'/thethe-captcha/lib/math_captcha.php?math_captcha_w='.$config['math_captcha_w'].'&math_captcha_h='.$config['math_captcha_h'].'&math_min_font_size='.$config['math_min_font_size'].'&math_max_font_size='.$config['math_max_font_size'].'&math_angle='.$config['math_angle'].'&math_bg_size='.$config['math_bg_size'].'&math_operators_mu='.$config['math_operators_mu'].'&math_operators_sub='.$config['math_operators_sub'].'&math_operators_plus='.$config['math_operators_plus'].'&math_operators_di='.$config['math_operators_di'].'&math_first_num_1='.$config['math_first_num_1'].'&math_first_num_2='.$config['math_first_num_2'].'&math_second_num_1='.$config['math_second_num_1'].'&math_second_num_2='.$config['math_second_num_2'].'&math_backg='.$math_backg.'&math_text='.$math_text.'&math_grid='.$math_grid.'&rand="+ Math.round(Math.random (0) * 1000);
+	str=str.replace(/&amp;/g,"&");
+	document.images["thethe_captcha"].src=str;
 	}) 
 }) 
 </script>
